@@ -1,10 +1,12 @@
 
-#include "ClaptTrap.hpp"
+#include "ClapTrap.hpp"
 
 int main()
 {
-	ClapTrap Lame;
+	ClapTrap Lame("Lame");
 
-	Lame.takeDamage(-23515);
+	Lame.takeDamage(1);
+
+	ClapTrap Lame2(Lame);
 	return (0);
 }
