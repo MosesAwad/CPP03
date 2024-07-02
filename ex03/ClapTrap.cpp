@@ -10,12 +10,10 @@ ClapTrap::ClapTrap(std::string name)
 	std::cout << "ClapTrap constructor called on " << this->name << std::endl;
 }
 
+// This equals is my overloaded assignment operator
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-	this->name = other.name;
-	this->hit_points = other.hit_points;
-	this->energy_points = other.energy_points;
-	this->attack_damage = other.attack_damage;
+	*this = other;
 }
 
 ClapTrap::~ClapTrap()
@@ -68,4 +66,16 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "ClapTrap " << this->name << " has been "
 		"repaired successfuly and is now at " << this->hit_points
 		<< " hit points" << std::endl;
+}
+
+ClapTrap& 	ClapTrap::operator=(const ClapTrap& other)
+{
+	if (this != &other)
+	{
+		this->name = other.name;
+		this->hit_points = other.hit_points;
+		this->energy_points = other.energy_points;
+		this->attack_damage = other.attack_damage;
+	}
+	return (*this);
 }
