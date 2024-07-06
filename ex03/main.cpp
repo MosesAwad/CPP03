@@ -6,6 +6,8 @@ int main()
 	DiamondTrap Lame("Lame");
 
 	Lame.whoAmI();
-	Lame.attack("Fagtrap");
+	Lame.attack("Bagstrap");
+	Lame.testerGetter();
+
 	return (0);
 }
