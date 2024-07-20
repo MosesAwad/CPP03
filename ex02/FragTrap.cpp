@@ -18,4 +18,3 @@ FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap destructor called on " << this->name << std::endl;;
 }
-
