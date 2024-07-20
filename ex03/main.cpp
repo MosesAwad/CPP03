@@ -13,5 +13,10 @@ int main()
 
 	Lame.attack("Hagstrap");
 
+	DiamondTrap Lame2("Dame");
+	Lame2 = Lame;
+
+	Lame2.whoAmI();
+
 	return (0);
 }

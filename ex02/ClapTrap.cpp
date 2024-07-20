@@ -1,6 +1,11 @@
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap() 
+{
+	std::cout << "ClapTrap default constructor called" << std::endl;
+};
+
 ClapTrap::ClapTrap(std::string name)
 {
 	this->name = name;

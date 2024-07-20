@@ -1,5 +1,11 @@
 
 #include "DiamondTrap.hpp"
+
+DiamondTrap::DiamondTrap()
+{
+	std::cout << "DiamondTrap default constructor called" << std::endl;
+}
+
 /*
 	For you to be able to access ClapTrap from FragTrap
 	and ScavTrap as the only parents classes of DiamondTrap,
@@ -55,6 +61,19 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), ScavTrap(o
 {
 	*this = other;
 	std::cout << "DiamondTrap copy constructor called on " << this->name << std::endl;
+}
+
+DiamondTrap& 	DiamondTrap::operator=(const DiamondTrap& other)
+{
+	if (this != &other)
+	{
+		this->name = other.name;
+		this->ClapTrap::name = other.ClapTrap::name;
+		this->FragTrap::hit_points = other.FragTrap::hit_points;
+		this->ScavTrap::energy_points = other.ScavTrap::energy_points;
+		this->FragTrap::attack_damage = other.FragTrap::attack_damage;
+	}
+	return (*this);
 }
 
 void	DiamondTrap::attack(const std::string& target)

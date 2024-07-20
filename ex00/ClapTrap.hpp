@@ -12,6 +12,7 @@ class ClapTrap
 		long long			hit_points;
 		int					energy_points;
 		int					attack_damage;
+		ClapTrap			();
 	public:
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& other);

@@ -1,5 +1,6 @@
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
@@ -22,6 +23,5 @@ int main()
 	std::cout << '\n';
 
 	delete(point);
-
 	return (0);
 }

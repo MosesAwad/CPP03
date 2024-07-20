@@ -17,10 +17,11 @@ class ClapTrap
 		long long			hit_points;
 		int					energy_points;
 		int					attack_damage;
+		ClapTrap			();
 	public:
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& other);
-		virtual 			~ClapTrap();
+		virtual ~ClapTrap();
 		ClapTrap& 			operator=(const ClapTrap& other);
 		virtual void		attack(const std::string& target);
 		void				takeDamage(unsigned int	amount);

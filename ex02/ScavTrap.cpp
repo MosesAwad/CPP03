@@ -1,6 +1,11 @@
 
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap() 
+{
+	std::cout << "ScavTrap default constructor called" << std::endl;
+};
+
 // The reason why I put ClapTrap(name) in the 
 // initializer list is because ClapTrap does not
 // have a truly default constructor [that takes no 
@@ -42,6 +47,19 @@ void	ScavTrap::attack(const std::string &target)
 		std::cout << "ScavTrap " << this->name << " unable to"
 			<< " attack " << target << " due to insufficient "
 			"energy points ( " << this->energy_points << " )"; 
+}
+
+
+ScavTrap& 	ScavTrap::operator=(const ScavTrap& other)
+{
+	if (this != &other)
+	{
+		this->name = other.name;
+		this->hit_points = other.hit_points;
+		this->energy_points = other.energy_points;
+		this->attack_damage = other.attack_damage;
+	}
+	return (*this);
 }
 
 void	ScavTrap::guardGate()
