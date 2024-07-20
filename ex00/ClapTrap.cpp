@@ -14,6 +14,7 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
 	*this = other;
+	std::cout << "ClapTrap copy constructor called on " << this->name << std::endl;
 }
 
 ClapTrap::~ClapTrap()
@@ -27,11 +28,11 @@ void	ClapTrap::attack(const std::string& target)
 	{
 		this->energy_points--;
 		std::cout << "ClapTrap " << this->name << " attacks "
-			<< target << " causing " << this->attack_damage
+			<< target << ", causing " << this->attack_damage
 			<< " points of damage" <<std::endl;
 	}
 	else
-		std::cout << "ClapTrap " << this->name << " unable to"
+		std::cout << "ClapTrap " << this->name << " is unable to"
 			<< " attack " << target << " due to insufficient "
 			"energy points ( " << this->energy_points << " )"; 
 }
@@ -42,9 +43,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (this->hit_points <= 0)
 		this->hit_points = 0;
 	std::cout << "ClapTrap " << this->name << " has taken "
-			<< amount << " amount of damage leaving them " 
-			"with " <<this->hit_points << " hitpoints "
-			"left" << std::endl;
+			<< amount << " amount of damage, leaving them " 
+			"with " <<this->hit_points << " hitpoints" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -53,6 +53,13 @@ void ClapTrap::beRepaired(unsigned int amount)
 	{
 		std::cout << "Sorry but ClapTrap has " << this->energy_points
 		<< " points and thus, is unable to repair" << std::endl;
+		return ;
+	}
+	if (hit_points == 100)
+	{
+		hit_points = 100;
+		std::cout << "Repair request denied, you are already at "
+			"maximum health points" << std::endl;
 		return ;
 	}
 	this->hit_points += amount;

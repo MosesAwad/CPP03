@@ -14,9 +14,10 @@ int main()
 	Lame.takeDamage(88);
 	Lame.attack("Stupid");
 
-	// FragTrap Lame2(Lame);
-	// Lame2.beRepaired(3);
-	// Lame2.highFiveGuys();
+	FragTrap Lame2(Lame);
+	Lame2.beRepaired(3);
+	Lame.beRepaired(3);
+	Lame2.highFiveGuys();
 	
 	std::cout << '\n';
 

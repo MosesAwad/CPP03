@@ -23,6 +23,11 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap constructor called on " << this->name << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
+{
+	*this = other;
+	std::cout << "ScavTrap copy constructor called on " << this->name << std::endl;
+}
 
 void	ScavTrap::attack(const std::string &target)
 {

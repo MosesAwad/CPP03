@@ -14,6 +14,7 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
 	*this = other;
+	std::cout << "ClapTrap copy constructor called on " << this->name << std::endl;
 }
 
 ClapTrap::~ClapTrap()
@@ -43,8 +44,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 		this->hit_points = 0;
 	std::cout << "ClapTrap " << this->name << " has taken "
 			<< amount << " amount of damage leaving them " 
-			"with " <<this->hit_points << " hitpoints "
-			"left" << std::endl;
+			"with " <<this->hit_points << " hitpoints" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -53,6 +53,13 @@ void ClapTrap::beRepaired(unsigned int amount)
 	{
 		std::cout << "Sorry but ClapTrap has " << this->energy_points
 		<< " points and thus, is unable to repair" << std::endl;
+		return ;
+	}
+	if (hit_points == 100)
+	{
+		hit_points = 100;
+		std::cout << "Repair request denied, you are already at "
+			"maximum health points" << std::endl;
 		return ;
 	}
 	this->hit_points += amount;

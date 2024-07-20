@@ -9,6 +9,12 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	std::cout << "FragTrap constructor called on " << this->name << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
+{
+	*this = other;
+	std::cout << "FragTrap copy constructor called on " << this->name << std::endl;
+}
+
 void	FragTrap::highFiveGuys(void)
 {
 	std::cout << "FragTrap " << this->name << " high fives the whole squad" << std::endl;

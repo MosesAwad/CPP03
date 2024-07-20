@@ -15,7 +15,7 @@
 	of the classes called in the class defintion, so [class DiamondTrap : 
 	public ScavTrap, public FragTrap] otherwise, it would not compile. So,
 	what happens now is two things: First, since FragTrap came last, DiamondTrap
-	will inherit FragTrap's values and Second, FragTrap overrid the values that
+	will inherit FragTrap's values and Second, FragTrap override the values that
 	ScavTrap set WITHIN the DiamondTrap class. So, if you comment out the following
 	lines:
 		FragTrap::hit_points = 100;
@@ -51,6 +51,12 @@ DiamondTrap::DiamondTrap(std::string name) :
 	std::cout << "DiamondTrap constructor called on " << this->name << std::endl;
 }
 
+DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
+{
+	*this = other;
+	std::cout << "DiamondTrap copy constructor called on " << this->name << std::endl;
+}
+
 void	DiamondTrap::attack(const std::string& target)
 { 
 	ScavTrap::attack(target);
@@ -68,11 +74,11 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "DiamondTrap destructor called on " << this->name << std::endl;
 }
 
-void	DiamondTrap::testerGetter()
-{
-	std::cout << "\nThe value of ScavTrap::KOUGEKI-RYOKU is " << ScavTrap::attack_damage << " and "
-			<< "the value of FragTrap::KOUGEKI-RYOKU is " << FragTrap::attack_damage << std::endl;
-	std::cout << "Did you see ⬆️ ? They are just different ways to refer to the same variable "
-			"in DiamondTrap.\nSo DiamondTrap only has one variable attack_damage; it just has "
-			"different ways to refer to it.\n" << std::endl;
-}
+// void	DiamondTrap::testerGetter()
+// {
+// 	std::cout << "\nThe value of ScavTrap::KOUGEKI-RYOKU is " << ScavTrap::attack_damage << " and "
+// 			<< "the value of FragTrap::KOUGEKI-RYOKU is " << FragTrap::attack_damage << std::endl;
+// 	std::cout << "Did you see ⬆️ ? They are just different ways to refer to the same variable "
+// 			"in DiamondTrap.\nSo DiamondTrap only has one variable attack_damage; it just has "
+// 			"different ways to refer to it.\n" << std::endl;
+// }

@@ -7,7 +7,11 @@ int main()
 
 	Lame.whoAmI();
 	Lame.attack("Bagstrap");
-	Lame.testerGetter();
+	// Lame.testerGetter();
+
+	// DiamondTrap Lame2(Lame);
+
+	Lame.attack("Hagstrap");
 
 	return (0);
 }
